@@ -22,11 +22,14 @@ from django.http import JsonResponse
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 def home(request):
-    return JsonResponse({
+    data = {
+        "status": "running",
         "message": "Welcome to the Ecommerce Backend API",
         "documentation": "/api/docs/",
         "schema": "/api/schema/",
-    })
+    }
+
+    return JsonResponse(data, json_dumps_params={"indent": 2})
 
 urlpatterns = [
     path("admin/", admin.site.urls),
