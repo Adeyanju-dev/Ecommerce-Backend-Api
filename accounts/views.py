@@ -72,7 +72,7 @@ class RegisterView(generics.CreateAPIView):
 
         try:
             user = serializer.save()
-            send_verification_email(user, request)
+            # send_verification_email(user, request)
             return Response(
                 {
                     "message": "Registration successful. Please check your email to verify your account."
