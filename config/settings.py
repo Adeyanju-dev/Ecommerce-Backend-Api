@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_spectacular',
     'django_filters',
+    'corsheaders',
 
     # Local apps
     'accounts',
@@ -74,6 +75,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -214,3 +217,7 @@ DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default=EMAIL_HOST_USER)
 
 FRONTEND_URL = config("FRONTEND_URL", default="http://127.0.0.1:5500")
 PASSWORD_RESET_TIMEOUT = config("PASSWORD_RESET_TIMEOUT", default=3600, cast=int)
+
+CORS_ALLOWED_ORIGINS = [
+    "https://bespoke-biscotti-880746.netlify.app",
+]
