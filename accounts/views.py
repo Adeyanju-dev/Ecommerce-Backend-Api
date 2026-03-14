@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.db import transaction
 
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
