@@ -11,6 +11,7 @@ from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import AllowAny
 from .serializers import (
     RegisterSerializer,
     UserSerializer,
@@ -250,3 +251,21 @@ class ChangePasswordView(APIView):
     
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
+
+class TestEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        try:
+            send_mail(
+                subject="Django SMTP Test",
+                message="Your SMTP configuration works.",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=["ademivel8@gmail.com"],  # put your email here
+                fail_silently=False,
+            )
+
+            return Response({"message": "Email sent successfully"})
+
+        except Exception as e:
+            return Response({"error": str(e)}, status=500)
