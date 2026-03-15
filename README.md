@@ -197,3 +197,15 @@ python manage.py test
 MIT License
 
 This project is built for **educational and portfolio purposes**.
+
+---
+
+# Links
+
+- Live API: https://ecommerce-backend-api-k8c8.onrender.com
+
+-Swagger Docs: https://ecommerce-backend-api-k8c8.onrender.com/api/docs/
+
+
+Frontend: https://bespoke-biscotti-880746.netlify.app
+
